@@ -1,0 +1,72 @@
+.used-equipment-section {
+    padding: 2rem;
+    background: #f9f9f9;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .used-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .used-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+  }
+  
+  .used-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .used-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .used-details {
+    padding: 1rem;
+  }
+  
+  .used-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .used-meta {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .used-price {
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 0.8rem;
+  }
+  
+  .view-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #1976d2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  .view-btn:hover {
+    background: #125ca1;
+  }
+  

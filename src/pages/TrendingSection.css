@@ -1,0 +1,103 @@
+.trending-loan-schemes {
+    background-color: #f1f6f8;
+    border-radius: 10px;
+  }
+  
+  .loan-slider {
+    position: relative;
+  }
+  
+  .loan-card {
+    background: #fff;
+    border-radius: 15px;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .loan-logo {
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .next-arrow {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  
+  .dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+  }
+  
+  .dots .dot.active {
+    background-color: red;
+    width: 20px;
+    border-radius: 6px;
+  }
+  .trending-loan-schemes {
+    background-color: #f1f6f8;
+    border-radius: 10px;
+  }
+  
+  .loan-slider {
+    position: relative;
+  }
+  
+  .loan-card {
+    background: #fff;
+    border-radius: 15px;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .loan-logo {
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .next-arrow {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  
+  .dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+  }
+  
+  .dots .dot.active {
+    background-color: red;
+    width: 20px;
+    border-radius: 6px;
+  }
+    

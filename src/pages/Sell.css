@@ -1,0 +1,111 @@
+.sell-page {
+    padding: 20px 15px;
+    background-color: #f5f7fa;
+  }
+  
+  .page-header {
+    margin-bottom: 20px;
+  }
+  
+  .page-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .page-header p {
+    color: #666;
+  }
+  
+  .sell-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .option-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .option-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .option-card p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .option-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .sell-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sell-form h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .image-upload-container {
+    position: relative;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .image-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .upload-placeholder {
+    color: #666;
+  }
+  
+  .upload-placeholder span {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #3f51b5;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #e53935;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  

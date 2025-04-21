@@ -1,0 +1,154 @@
+.site-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 100px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .logo-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #e53935;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-icon {
+    color: #e53935;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+  }
+  
+  .user-icon, .message-icon {
+    color: #7b1fa2;
+  }
+  
+  .main-nav {
+    display: none;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .main-nav.open {
+    display: block;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main-nav li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .main-nav li:last-child {
+    border-bottom: none;
+  }
+  
+  .main-nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+  }
+  
+  .main-nav ul li.active a {
+    color: #e63946;
+    font-weight: bold;
+    border-bottom: 2px solid #e63946;
+  }
+  
+  .nav-icons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .menu-toggle {
+      display: none;
+    }
+  
+    .main-nav {
+      display: block;
+    }
+  
+    .main-nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .main-nav li {
+      border-bottom: none;
+      padding: 10px 15px;
+    }
+  
+    .nav-icons {
+      margin-left: auto;
+      order: 1;
+      padding: 0 10px;
+    }
+  }
+  

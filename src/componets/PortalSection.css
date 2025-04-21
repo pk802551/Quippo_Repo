@@ -1,0 +1,106 @@
+.portal-sale-banner {
+    background: linear-gradient(to right, #f5f7f9, #fff);
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner-content {
+    z-index: 2;
+    position: relative;
+  }
+  
+  .banner-title {
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+  }
+  
+  .buy-from {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .portal-sale {
+    font-size: 32px;
+    font-weight: 700;
+    color: #e32726;
+  }
+  
+  .portal-sale span {
+    color: #3a56a5;
+  }
+  
+  .banner-features {
+    margin-bottom: 15px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .feature-dot {
+    color: #333;
+    margin-right: 8px;
+    font-size: 10px;
+  }
+  
+  .view-inventory-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .banner-image {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .banner-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .portal-sale-banner {
+      flex-direction: row;
+      padding: 30px;
+    }
+  
+    .banner-content {
+      flex: 1;
+    }
+  
+    .banner-image {
+      flex: 1;
+      margin-top: 0;
+    }
+  
+    .buy-from {
+      font-size: 22px;
+    }
+  
+    .portal-sale {
+      font-size: 40px;
+    }
+  
+    .feature {
+      font-size: 16px;
+    }
+  
+    .view-inventory-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  }
+  
