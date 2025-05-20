@@ -1,10 +1,13 @@
 .search-container {
-    padding: 15px;
+    /* padding: 15px;
     background-color: #fff;
+    margin-left: 25%; */
+
   }
   
   .search-form {
     width: 100%;
+    /* max-width: 181%; */
   }
   
   .search-input-container {

@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     width: 160px;
-    height: 100px;
+    height: 50px;
     padding: 10px;
     background-color: #fff;
     border-radius: 10px;
@@ -33,12 +33,12 @@
   }
   
   .logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    max-width: 160px;        /* Set a clean maximum width */
+    height: auto;            /* Maintain aspect ratio */
+    object-fit: contain;     /* Prevent distortion */
     transition: transform 0.3s ease;
+    padding: 4px;            /* Optional: some space around the logo */
   }
-  
   .logo:hover {
     transform: scale(1.05);
   }

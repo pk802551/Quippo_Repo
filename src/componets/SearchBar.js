@@ -1,21 +1,52 @@
 "use client"
 
 import { useState } from "react"
-import { FaSearch, FaChevronDown, FaChevronUp } from "react-icons/fa"
+import { FaSearch } from "react-icons/fa"
 import "./SearchBar.css"
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("")
-  const [showAdvanced, setShowAdvanced] = useState(false)
+  const [results, setResults] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault()
-    console.log("Searching for:", searchTerm)
-    // Implement search functionality
-  }
+    setLoading(true)
+    setError(null)
 
-  const toggleAdvanced = () => {
-    setShowAdvanced(!showAdvanced)
+    const params = new URLSearchParams({
+      state: "Delhi",
+      year: "2024",
+      makeName: "TVS MOTORS",
+      modelName: "TVS XL SUPER",
+      productName: "TWO WHEELER",
+      approvedBidMin: "26000",
+      approvedBidMax: "27000",
+      page: "0",
+      size: "10",
+    })
+
+    try {
+      const response = await fetch(`http://localhost:8080/vehicles/search?${params}`, {
+        headers: {
+          accept: "/",
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      setResults(data)
+      console.log("Fetched vehicles:", data)
+    } catch (err) {
+      setError(err.message)
+      console.error("API error:", err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -35,51 +66,13 @@ const SearchBar = () => {
         </div>
       </form>
 
-      <button className="advanced-search-toggle" onClick={toggleAdvanced}>
-        Advanced Search {showAdvanced ? <FaChevronUp /> : <FaChevronDown />}
-      </button>
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
-      {showAdvanced && (
-        <div className="advanced-search-panel">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="form-group">
-                <label>Brand</label>
-                <select className="form-control">
-                  <option>Any Brand</option>
-                  <option>Caterpillar</option>
-                  <option>JCB</option>
-                  <option>Komatsu</option>
-                  <option>Volvo</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="form-group">
-                <label>Year</label>
-                <select className="form-control">
-                  <option>Any Year</option>
-                  <option>2023</option>
-                  <option>2022</option>
-                  <option>2021</option>
-                  <option>2020</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="form-group">
-                <label>Price Range</label>
-                <select className="form-control">
-                  <option>Any Price</option>
-                  <option>Under $50,000</option>
-                  <option>$50,000 - $100,000</option>
-                  <option>$100,000 - $200,000</option>
-                  <option>Over $200,000</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <button className="btn btn-primary mt-3">Apply Filters</button>
+      {results && (
+        <div className="results">
+          <h4>Results:</h4>
+          <pre>{JSON.stringify(results, null, 2)}</pre>
         </div>
       )}
     </div>

@@ -1,84 +1,64 @@
-.auction-section {
-  padding: 20px 15px;
-  background-color: #fff;
-  margin-top: 20px;
+/* UsedEquipment.css */
+
+.equipment-card {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+.equipment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-.view-all-link {
-  color: #3f51b5;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.auction-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-}
-
-.auction-card {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #eee;
-}
-
-.auction-image {
+.equipment-img {
   width: 100%;
-  height: 180px;
-  overflow: hidden;
-}
-
-.auction-image img {
-  width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
 }
 
-.auction-details {
-  padding: 15px;
-}
-
-.auction-title {
-  font-size: 16px;
+.card-title-custom {
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 10px;
   color: #333;
 }
 
-.auction-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.bid-amount,
-.time-remaining {
-  font-weight: 600;
-  color: #e53935;
-}
-
-.bid-now-btn {
-  display: block;
-  width: 100%;
-  background-color: #3f51b5;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  border-radius: 4px;
+.filter-label {
   font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
 }
 
-@media (min-width: 768px) {
-  .auction-grid {
-    grid-template-columns: repeat(2, 1fr);
+.filter-section {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-slider {
+  width: 100%;
+}
+
+.range-display {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.popular-tags button {
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 991px) {
+  .equipment-img {
+    height: 150px;
+  }
+
+  .popular-tags {
+    flex-wrap: wrap;
+  }
+
+  .popular-tags button {
+    margin-bottom: 0.5rem;
   }
 }

@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": "54b0",
+      "fullName": "prashant kumar",
+      "email": "pksaini952051@gmail.com",
+      "phoneNumber": "9520512013",
+      "altNumber": "9179882747",
+      "location": "noida "
+    },
+    {
+      "id": "430d",
+      "fullName": "prashant kumar",
+      "email": "pksaini952051@gmail.com",
+      "phoneNumber": "9520512013",
+      "altNumber": "9179882747",
+      "location": "Noida",
+      "password": "Amroha@12345"
+    }
+  ]
+}
+
+
+
+
+{
+  "vehicles": [
+    {
+      "vehicleId": 22,
+      "contractNo": "DLDLDETW00073",
+      "state": "DELHI",
+      "hubName": "DELHI",
+      "locationName": "DELHI",
+      "productName": "TWO WHEELER",
+      "custUvModel": "2022",
+      "yardName": "SHRI SHIV SHAKTI PARKING YARD",
+      "yrdAddress": "KH NO 384 TILA SHAHABAJPUR POS LONI GHAZIABAD 201102",
+      "contractDate": "2022-11-19T00:00",
+      "customerName": "MOHD ISLAM",
+      "repossessionDate": "2024-12-19T00:00",
+      "rcBookNo": "DL5SCX4243",
+      "engineNo": "MBLHAW127NHKA9663",
+      "chassisNo": "HA11EDNHK77433",
+      "makeName": "HERO MOTOR CORP",
+      "modelName": "SPLENDOR PLUS",
+      "approvedBid": "24100",
+      "focusPool": "90 to 180",
+      "valuationLink": ""
+    },
+    {
+      "vehicleId": 21,
+      "contractNo": "DLGHLITW00184",
+      "state": "DELHI",
+      "hubName": "GHAZIABAD",
+      "locationName": "LONI",
+      "productName": "TWO WHEELER",
+      "custUvModel": "2024",
+      "yardName": "TIRUPATI BALAJI YARD",
+      "yrdAddress": "PLOT NO 135/136, F KH, 18/16 ,SHIVANI ENCL, KAKROLA ,",
+      "contractDate": "2024-08-21T00:00",
+      "customerName": "MANOJ",
+      "repossessionDate": "2024-09-27T00:00",
+      "rcBookNo": "32621",
+      "engineNo": "MD621BP22R9G02624",
+      "chassisNo": "BP2FR2715817",
+      "makeName": "TVS MOTORS",
+      "modelName": "TVS XL SUPER",
+      "approvedBid": "27000",
+      "focusPool": "180 Plus",
+      "valuationLink": ""
+    }
+    // Add the rest of the vehicle objects similarly...
+  ]
+}

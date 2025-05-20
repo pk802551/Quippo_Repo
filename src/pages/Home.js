@@ -1,50 +1,70 @@
-import React, { useRef } from "react"
-import AuctionSection from "../componets/AuctionSection"
+import React, { useRef, useEffect, useState } from "react"
+import MarketPlacePage from "../componets/AuctionSection"
 import PromoBanner from "../componets/Banner"
 import CategoryGrid from "../componets/categoryGrid"
-import SearchBar from "../componets/SearchBar"
 import ValuedOEMs from "../pages/valuesOme"
 import TrendingLoanSchemes from "./TrendingLoan"
 import ValuedPartner from "./valuedPartner"
 import "./Home.css"
+import FAQPage from "../componets/FAQ"
+
 
 const HomePage = () => {
   const fileInputRef = useRef(null)
+  const [role, setRole] = useState("")
+
+  useEffect(() => {
+    const updateRoleFromStorage = () => {
+      const savedRole = localStorage.getItem("userRole")
+      setRole(savedRole || "Buyer/Seller")
+    }
+
+    updateRoleFromStorage()
+
+    // Listen to storage change from other components
+    window.addEventListener("storage", updateRoleFromStorage)
+
+    return () => window.removeEventListener("storage", updateRoleFromStorage)
+  }, [])
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]
     if (file) {
       console.log("Uploaded Excel File:", file.name)
-      // You can process the Excel file here using xlsx or backend upload
     }
   }
 
+
+  console.log("role",role)
   return (
     <main className="home-page">
-      <SearchBar />
- <PromoBanner />
-      <CategoryGrid />
-       {/* Upload Excel Button */}
-       <div className="upload-excel-container">
-        <button
-          className="upload-btn"
-          onClick={() => fileInputRef.current?.click()}
-        >
-          Upload Excel File
-        </button>
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          accept=".xls,.xlsx"
-          style={{ display: "none" }}
-        />
-      </div>
-      <AuctionSection />
+      {/* <PromoBanner /> */}
+      {/* <CategoryGrid /> */}
+
+      {/* Upload Excel Button visible only for Admin */}
+      {role === "Admin" && (
+        <div className="upload-excel-container">
+          <button
+            className="upload-btn"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            Upload Excel File
+          </button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            accept=".xls,.xlsx"
+            style={{ display: "none" }}
+          />
+        </div>
+      )}
+
+      <MarketPlacePage />
       <ValuedPartner />
       <TrendingLoanSchemes />
-      
       <ValuedOEMs />
+      <FAQPage/>
     </main>
   )
 }

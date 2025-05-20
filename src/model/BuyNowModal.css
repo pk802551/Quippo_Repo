@@ -1,0 +1,46 @@
+/* BuyNowModal.css */
+
+.buy-now-modal .modal-content {
+    border-radius: 12px;
+    padding: 10px;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  .buy-now-modal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .buy-now-modal .modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .buy-now-modal .modal-body {
+    padding: 20px;
+  }
+  
+  .buy-now-modal form label {
+    font-weight: 500;
+  }
+  
+  .buy-now-modal form .form-control {
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .buy-now-modal form .btn {
+    font-weight: 600;
+    border-radius: 10px;
+  }
+  
+  .buy-now-modal .seller-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .buy-now-modal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    justify-content: space-between;
+  }
+  
