@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import "./valuation.css"
 
 const ValuationPage = () => {
   const [formData, setFormData] = useState({

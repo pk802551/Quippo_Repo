@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Accordion } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../componets/FAQ.css";
 
 const FAQPage = () => {
 const [activeKey, setActiveKey] = useState("0");

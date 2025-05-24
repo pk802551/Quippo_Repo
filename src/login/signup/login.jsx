@@ -1,65 +1,60 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import '../../assets/css/login.css';
 import axios from 'axios';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../../assets/css/login.css';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
-const handleLogin = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-  try {
-    const response = await axios.get('http://localhost:8080/login', {
-      params: {
-        email: email,
-        password: password,
-      },
-    });
-
-    if (response.data.length > 0) {
-      alert('Login Successful!');
-      navigate('/homePage');
-    } else {
-      alert('Invalid email or password');
+    try {
+      const response = await axios.post('http://localhost:8080/auth/login', credentials);
+      sessionStorage.setItem('loggedInUser', JSON.stringify(response.data));
+      toast.success('Login successful!');
+      setTimeout(() => navigate('/'), 1500);
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'Login failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error(error);
-    alert('Login failed');
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
-    <div className="login-page d-flex align-items-center justify-content-center" >
-      <Container className="login-container">
+    <div className="login-wrapper">
+      <ToastContainer />
+      <Container className="login-form-container">
         <div className="login-card">
-          <div className="text-center mb-4">
+          <div className="login-header text-center">
             <img
               src={require('../../assets/image/NewQuippo.png')}
               alt="Quippo Logo"
               className="login-logo"
             />
-            <h2 className="login-title">Welcome to Quippo</h2>
+            <h2>Welcome to Quippo</h2>
             <p className="text-muted">Please log in to continue</p>
           </div>
 
           <Form onSubmit={handleLogin}>
-            <Form.Group controlId="email" className="mb-3">
-              <Form.Label>Email address</Form.Label>
+            <Form.Group controlId="username" className="mb-3">
+              <Form.Label>Username</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                value={credentials.username}
+                onChange={handleChange}
                 required
               />
             </Form.Group>
@@ -68,19 +63,15 @@ const handleLogin = async (e) => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
+                name="password"
                 placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={credentials.password}
+                onChange={handleChange}
                 required
               />
             </Form.Group>
 
-            <Button
-              variant="warning"
-              type="submit"
-              className="w-100 login-btn"
-              disabled={loading}
-            >
+            <Button variant="warning" type="submit" className="w-100 login-btn" disabled={loading}>
               {loading ? (
                 <>
                   <Spinner animation="border" size="sm" /> Starting Machine...
@@ -91,8 +82,8 @@ const handleLogin = async (e) => {
             </Button>
           </Form>
 
-          <p className="text-center mt-3 mb-0">
-            Don’t have an account? <a href="/signup">Sign up</a>
+          <p className="text-center mt-3">
+            Don’t have an account? <a href="/signupPage">Sign up</a>
           </p>
         </div>
       </Container>

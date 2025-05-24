@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
 import '../../assets/css/signupPage.css';
-import { useNavigate } from 'react-router-dom'; // Make sure react-router-dom is installed
-
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    fullName: '',
+    userName: '',        // fullName mapped to userName
     email: '',
-    phoneNumber: '',
-    altNumber: '',
-    location: '',
-    password:""
+    phone: '',
+    alternatePhone: '',  // altNumber mapped to alternatePhone
+    state: '',           // location mapped to state
+    address: '',         // added for API
+    password: ''
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-    const isFormValid = Object.values(formData).every(val => val.trim() !== '');
+  const isFormValid = Object.values(formData).every(val => val.trim() !== '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-        if (!isFormValid) return;
+    if (!isFormValid) return;
+
     setLoading(true);
     setMessage('');
 
@@ -33,6 +35,7 @@ const SignupForm = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'accept': '*/*',
         },
         body: JSON.stringify(formData),
       });
@@ -42,35 +45,36 @@ const SignupForm = () => {
       }
 
       const result = await response.json();
-      console.log('Form submitted successfully:', result);
+      console.log('Signup successful:', result);
       setMessage('Signup successful!');
       setFormData({
-        fullName: '',
+        userName: '',
         email: '',
-        phoneNumber: '',
-        altNumber: '',
-        location: '',
-        password:""
+        phone: '',
+        alternatePhone: '',
+        state: '',
+        address: '',
+        password: ''
       });
+
+      setTimeout(() => navigate('/loginPage'), 1000); // Navigate to login after success
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Signup error:', error);
       setMessage('Signup failed. Please try again.');
     } finally {
-            navigate('/'); // Navigate to login page
       setLoading(false);
     }
   };
 
-
   return (
-      <div className="signup-container">
+    <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
         <input
           type="text"
-          name="fullName"
+          name="userName"
           placeholder="Full Name"
-          value={formData.fullName}
+          value={formData.userName}
           onChange={handleChange}
           required
         />
@@ -84,29 +88,36 @@ const SignupForm = () => {
         />
         <input
           type="tel"
-          name="phoneNumber"
+          name="phone"
           placeholder="Phone Number"
-          value={formData.phoneNumber}
+          value={formData.phone}
           onChange={handleChange}
           required
         />
         <input
           type="tel"
-          name="altNumber"
+          name="alternatePhone"
           placeholder="Alternative Number"
-          value={formData.altNumber}
+          value={formData.alternatePhone}
           onChange={handleChange}
         />
         <input
           type="text"
-          name="location"
-          placeholder="Location"
-          value={formData.location}
+          name="state"
+          placeholder="State"
+          value={formData.state}
           onChange={handleChange}
           required
         />
-
-          <input
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+          required
+        />
+        <input
           type="password"
           name="password"
           placeholder="Password"
@@ -114,17 +125,6 @@ const SignupForm = () => {
           onChange={handleChange}
           required
         />
-        {/* <select
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select Role</option>
-          <option value="Admin">Admin</option>
-          <option value="Buyer">Buyer</option>
-          <option value="Seller">Seller</option>
-        </select> */}
 
         <button type="submit" disabled={loading}>
           {loading ? 'Submitting...' : 'Sign Up'}

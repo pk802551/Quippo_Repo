@@ -1,5 +1,4 @@
 import React from 'react';
-import './ValueOME.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const oems = [

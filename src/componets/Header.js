@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaUser, FaBars, FaComments, FaMapMarkerAlt } from "react-icons/fa";
 import ProfileModal from "../pages/ProfileSection";
-import "./Header.css";
 import { HeartFill } from 'react-bootstrap-icons';
 import { useWishlist } from "../assets/WishlistContext/WishlistContext";
 
@@ -12,7 +11,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [showLocation, setShowLocation] = useState(false); // 👈 state for location modal
-const { wishlist } = useWishlist();
+  const { wishlist } = useWishlist();
 
   const location = useLocation();
 
@@ -30,7 +29,7 @@ const { wishlist } = useWishlist();
                 <FaBars className="menu-icon" />
               </button>
               <div className="logo-container">
-                <Link to="/homePage">
+                <Link to="/">
                   <img
                     src={require("../assets/image/NewQuippo.png")}
                     alt="Quippo Logo"
@@ -62,7 +61,7 @@ const { wishlist } = useWishlist();
             </li>
 
             <li className={isActive("/") ? "active" : ""}>
-              <Link to="/homePage">Market Place</Link>
+              <Link to="/">Market Place</Link>
             </li>
             <li className={isActive("/used-equipment") ? "active" : ""}>
               <Link to="/used-equipment">Used Equipment</Link>

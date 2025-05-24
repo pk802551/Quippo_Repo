@@ -19,7 +19,8 @@ const BuyNowModal = ({ seller = {}, show, handleClose }) => {
         name: '',
         phone: '',
         email: '',
-        location: ''
+        location: '',
+        buduget:""
       });
     }
   }, [show]);
@@ -53,7 +54,8 @@ const BuyNowModal = ({ seller = {}, show, handleClose }) => {
       </Modal.Header>
 
       <Modal.Body>
-        {step === 'form' ? (
+         <div className="modal-scroll-body">
+
           <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-2">
               <Form.Label>Full Name</Form.Label>
@@ -95,32 +97,23 @@ const BuyNowModal = ({ seller = {}, show, handleClose }) => {
                 required
               />
             </Form.Group>
+              <Form.Group className="mb-2">
+              <Form.Label>Buduget</Form.Label>
+              <Form.Control
+                type="text"
+                name="location"
+                value={buyer.buduget}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
             <Button variant="primary" type="submit" className="mt-2 w-100">
               Continue
             </Button>
           </Form>
-        ) : (
-          <>
-            <p><strong>Seller Name:</strong> {seller.name || 'N/A'}</p>
-            <p><strong>Phone:</strong> {seller.phoneNumber || 'N/A'}</p>
-            <p><strong>Email:</strong> {seller.email || 'N/A'}</p>
-            <p><strong>Location:</strong> {seller.location || 'N/A'}</p>
-            <hr />
-            <p><strong>Buyer:</strong> {buyer.name} ({buyer.phone})</p>
-          </>
-        )}
+          </div>
       </Modal.Body>
 
-      {step === 'seller' && (
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="success" onClick={handleSendSMS}>
-            Send SMS to Seller
-          </Button>
-        </Modal.Footer>
-      )}
     </Modal>
   );
 };

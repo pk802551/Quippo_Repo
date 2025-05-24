@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaGavel, FaTag, FaCalculator } from "react-icons/fa";
-import "./Footer.css";
 import logo from "../assets/image/NewQuippo.png"; // make sure this path matches your logo
 
 const Footer = () => {

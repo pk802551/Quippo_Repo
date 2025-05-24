@@ -1,17 +1,24 @@
-import "./ProfileSection.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ViewProfileModal from "../model/ViewModal";
-import axios from "axios";
+import axios from "axios"
+import { Button } from "react-bootstrap";
+
+
 
 const ProfileModal = ({ isOpen, onClose }) => {
-  const [role, setRole] = useState("Buyer/Seller");
   const [showViewProfile, setShowViewProfile] = useState(false);
   const [user, setUser] = useState(null); // Store API user data
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const savedRole = localStorage.getItem("userRole");
-    if (savedRole) setRole(savedRole);
+   const  saveduser =localStorage.getItem("loggedInUser");
+
+   if(saveduser){
+const userData =JSON.parse(saveduser)
+setUser(userData)
+   }
+
   }, []);
 
   useEffect(() => {
@@ -22,7 +29,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/users/1", {
+      const response = await axios.get(`http://localhost:8080/users/${user.userID}`, {
         headers: {
           accept: "*/*",
         },
@@ -33,11 +40,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
     }
   };
 
-  const toggleRole = () => {
-    const newRole = role === "Admin" ? "Buyer/Seller" : "Admin";
-    setRole(newRole);
-    localStorage.setItem("userRole", newRole);
-  };
+
 
   if (!isOpen) return null;
 
@@ -55,13 +58,6 @@ const ProfileModal = ({ isOpen, onClose }) => {
             <h3 className="username">{user?.userName || "Loading..."}</h3>
             <p className="user-email">{user?.email || ""}</p>
 
-            <div className="role-toggle">
-              <span className="role-label">Role:</span>
-              <button className="role-btn" onClick={toggleRole}>
-                {role}
-              </button>
-            </div>
-
             <div className="profile-details">
               <p><strong>Phone:</strong> {user?.phone || "-"}</p>
               <p><strong>Alt Phone:</strong> {user?.alternatePhone || "-"}</p>
@@ -73,8 +69,16 @@ const ProfileModal = ({ isOpen, onClose }) => {
             <div className="profile-actions">
               <button onClick={() => setShowViewProfile(true)}>View Profile</button>
               <Link to="/settings">Settings</Link>
-              <button className="logout-btn">Logout</button>
-            </div>
+              <Button
+                className="logout-btn"
+                variant="danger"
+                onClick={() => {
+                  localStorage.clear();         // Clear all localStorage
+                  navigate("/");       // Redirect to login
+                }}
+              >
+                Logout
+              </Button>            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './TrendingSection.css';
 import { FaArrowRight } from 'react-icons/fa';
 
 const loanSchemes = [

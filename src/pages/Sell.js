@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import "./Sell.css"
-
 const SellPage = () => {
   const [formData, setFormData] = useState({
     equipmentType: "",
@@ -40,21 +38,6 @@ const SellPage = () => {
         <h1>Sell Your Equipment</h1>
         <p>List your equipment for sale or auction</p>
       </div>
-
-      <div className="sell-options">
-        <div className="option-card">
-          <h3>Direct Sale</h3>
-          <p>List your equipment with a fixed price</p>
-          <button className="option-btn">Choose</button>
-        </div>
-
-        <div className="option-card">
-          <h3>Auction</h3>
-          <p>Let buyers bid on your equipment</p>
-          <button className="option-btn">Choose</button>
-        </div>
-      </div>
-
       <form className="sell-form" onSubmit={handleSubmit}>
         <h2>Equipment Details</h2>
 

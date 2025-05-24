@@ -1,11 +1,8 @@
 import React, { useRef, useEffect, useState } from "react"
 import MarketPlacePage from "../componets/AuctionSection"
-import PromoBanner from "../componets/Banner"
-import CategoryGrid from "../componets/categoryGrid"
 import ValuedOEMs from "../pages/valuesOme"
 import TrendingLoanSchemes from "./TrendingLoan"
 import ValuedPartner from "./valuedPartner"
-import "./Home.css"
 import FAQPage from "../componets/FAQ"
 
 
@@ -38,10 +35,6 @@ const HomePage = () => {
   console.log("role",role)
   return (
     <main className="home-page">
-      {/* <PromoBanner /> */}
-      {/* <CategoryGrid /> */}
-
-      {/* Upload Excel Button visible only for Admin */}
       {role === "Admin" && (
         <div className="upload-excel-container">
           <button
